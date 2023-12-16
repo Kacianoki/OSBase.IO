@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>nyarkus</Authors>
+    <Company>Kacianoki</Company>
+    <PackageIcon>EBLogo.png</PackageIcon>
+    <PackageTags>Eternal Beta</PackageTags>
+    <Title>OSBase.IO</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\EBLogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OSBase\OSBase.csproj" />
+    <ProjectReference Include="..\OSBase\OSBase.Info.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="call &quot;D:\Projects\VS\Eternal Beta\Bases\OS\OSBase.IO\bin\Release\copy.bat&quot;" />
+  </Target>
+
+</Project>
