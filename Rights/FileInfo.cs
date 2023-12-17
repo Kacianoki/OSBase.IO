@@ -15,7 +15,7 @@ public class FileInfo
     /// <exception cref="Exceptions.WrongFile">Выбрасывается, если указанный путь к файлу будет вести к файлу сохранения.</exception>
     public static FileInfo Get(string path)
     {
-        if (path.EndsWith(".kfp") || path.EndsWith(".kdp")) throw new Exceptions.WrongFile();
+        if (path.EndsWith(".kfp") || path.EndsWith(".kdp")) throw new Exceptions.WrongFileException();
         var file = new System.IO.FileInfo(path);
         var right = Newtonsoft.Json.JsonConvert.DeserializeObject<RightsFileForFiles>(System.IO.File.ReadAllText(file.FullName + ".kfp"));
         return new FileInfo(right, file);
@@ -34,7 +34,7 @@ public class FileInfo
     {
         try
         {
-            if (path.EndsWith(".kfp") || path.EndsWith(".kdp")) throw new Exceptions.WrongFile();
+            if (path.EndsWith(".kfp") || path.EndsWith(".kdp")) throw new Exceptions.WrongFileException();
             var file = new System.IO.FileInfo(path);
             var right = Newtonsoft.Json.JsonConvert.DeserializeObject<RightsFileForFiles>(System.IO.File.ReadAllText(file.FullName + ".kfp"));
             fileInfo = new FileInfo(right, file);

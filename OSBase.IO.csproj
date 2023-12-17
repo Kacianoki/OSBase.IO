@@ -10,6 +10,16 @@
     <PackageIcon>EBLogo.png</PackageIcon>
     <PackageTags>Eternal Beta</PackageTags>
     <Title>OSBase.IO</Title>
+    <RepositoryUrl>https://github.com/Kacianoki/OSBase.IO</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Description>The basis for writing the OS in Eternal Beta</Description>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <Copyright>Kacianoki</Copyright>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,17 +27,12 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Include="licenses\LICENSE.txt" Pack="True" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OSBase\OSBase.csproj" />
-    <ProjectReference Include="..\OSBase\OSBase.Info.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="OSBase.Info" Version="1.0.0" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

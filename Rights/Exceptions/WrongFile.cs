@@ -1,7 +1,7 @@
 ﻿namespace OSBase.IO.Rights.Exceptions;
 
-    public class WrongFile : Exception
+    public class WrongFileException : Exception
     {
-    public WrongFile() : base("Files like \".kfp\" and \".kdp\" cannot be used in the game.") { }
+    public WrongFileException() : base("Files like \".kfp\" and \".kdp\" cannot be used in the game.") { }
     }
 
